@@ -15,8 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-6">
 			<h1>Add item</h1>
-			<?=validation_errors()?>
-			<?=form_open_multipart()?>
+      <?=isset($error) ? $error : ""?>
+      <?=validation_errors()?>
+      <form action="<?=base_url('add_item')?>" method="post">
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" class="form-control" id="title" name="title" value="<?=set_value('title')?>">
@@ -27,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div class="form-group">
 	<label for="image">image</label>
-	<input class="form-control" type="file" id="image" value="<?=set_value('image')?>">
+	<input class="form-control" type="file" id="image" name="image">
   </div>
   <div class="form-group">
     <label for="description">description</label>
