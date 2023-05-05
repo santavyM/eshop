@@ -10,7 +10,7 @@
             <div class="col-4">
             <img class="card-img-top" src="<?=('uploads/'.$item->image)?>" alt="<?=$item->title?>">
             <div class="card-body">
-                <h5 class="card-title"><?=$item->title?> </h5>
+                <h5 class="card-title"><?=$item->id.(') ').$item->title?> </h5>
                 <p class="card-text">$<?=$item->price?></p>
                 <a href="#" class="btn btn-primary"> pridej do kosiku</a>
             </div>

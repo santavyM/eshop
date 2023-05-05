@@ -15,9 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-6">
 			<h1>Add item</h1>
-      <?=isset($error) ? $error : ""?>
-      <?=validation_errors()?>
-      <form action="<?=base_url('add_item')?>" method="post">
+      <?isset($error) ? $error : ""?>
+      <?php validation_errors(current_url());?>
+      <?php echo form_open_multipart('Home/add_item');?>
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" class="form-control" id="title" name="title" value="<?=set_value('title')?>">
@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<textarea class="form-control" id="description" name="description"><?=set_value('description')?></textarea>
   </div>
   <button type="submit" class="btn btn-success">Add new</button>
-	<?=form_close()?>
+	<?php form_close();?>
 			</div>
 		</div>
 	</div>
