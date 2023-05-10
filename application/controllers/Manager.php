@@ -26,9 +26,62 @@ class Manager extends CI_Controller {
 		]);
 		$viewData['pagination'] = $this->pagination->create_links();
 
-        $this->render('manager/items', $viewData);
+        $this->render('manager/users', $viewData);
     }
 
+	public function delete_users($id)
+	{
+		$item = $this->db->select('email')->where('id', $id)->get('users')->row();
+		if(is_object($item)){
+			$this->db->delete('users', array('id' => $id));
+			$this->add_alert('success', 'User delete successful');
+		}
+		redirect(base_url('manager/users'));
+
+	}
+	
+	public function edit_user($id)
+	{
+		$viewData = [];
+
+        $user = $this->db->where('id', $id)->get('users')->row();
+        if(!is_object($user)){
+            show_404();
+        }
+
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+		$this->form_validation->set_rules('first_name', 'First name', 'required|trim');
+		$this->form_validation->set_rules('last_name', 'Last name', 'required|trim');
+		$this->form_validation->set_rules('level', 'level', 'required|trim|numeric');
+		$this->form_validation->set_rules('password', 'Password', 'trim');
+
+		if ($this->form_validation->run())
+			{
+				$data = [
+					'email'		 	=> $this->input->post('email'),
+					'first_name' 	=> $this->input->post('first_name'),
+					'last_name' 	=> $this->input->post('last_name'),
+					'level' 		=> $this->input->post('level')
+				];
+
+				$password = $this->input->post('password');
+				if($password)
+				{
+					$data['password'] = md5(sha1($this->input->post('password')));
+				}
+
+				$this->db->where('id', $id)->update('users', $data);
+				$viewData['success'] = 'User successfully updated';
+				redirect(base_url('index.php/manager/users'));
+			}
+            $viewData['user'] = $user;
+
+			$this->render('manager/edit_user', $viewData);
+	}
 
     public function items(){
         $viewData = [];

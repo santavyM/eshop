@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div class="form-group">
 	<label for="image">image</label>
-	<input class="form-control" type="file" id="image" value="<?=set_value('image')?>">
+	<input class="form-control" type="file" id="image" name="image" value="<?=set_value('image')?>">
   </div>
   <div class="form-group">
     <label for="description">description</label>
