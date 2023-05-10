@@ -1,6 +1,6 @@
 <?php
 $config['enable_query_strings'] = true;
-$config['per_page'] = 1;
+$config['per_page'] = 2;
     $config['full_tag_open'] = '<ul class="pagination">';        
     $config['full_tag_close'] = '</ul>';        
     $config['first_link'] = 'First';        

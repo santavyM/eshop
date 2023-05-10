@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-6">
 			<h1>Add category</h1>
 			<?php echo validation_errors(); ?>
-			<?php form_open(base_url("home/add_category"));?>
+			<?=form_open(current_url());?>
   <div class="form-group">
     <label for="title">Title</label>
     <input type="text" class="form-control" id="title" name="title" value="<?=set_value('title')?>">

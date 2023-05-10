@@ -5,10 +5,14 @@
         </div>
     </div>
     <div class="row">
-        
+        <?php if(count($items) == 0):?>
+            <div class="col-6">
+                <div class="alert alert-danger">Product not found</div>
+            </div>
+        <?php endif;?>
         <?php foreach($items as $item): ?>
             <div class="col-4">
-            <img class="card-img-top" src="<?=('uploads/'.$item->image)?>" alt="<?=$item->title?>">
+            <img class="card-img-top" src="<?=base_url('uploads/'.$item->image)?>" alt="<?=$item->title?>">
             <div class="card-body">
                 <h5 class="card-title"><?=$item->id.(') ').$item->title?> </h5>
                 <p class="card-text">$<?=$item->price?></p>
