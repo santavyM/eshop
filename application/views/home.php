@@ -16,7 +16,7 @@
             <div class="card-body">
                 <h5 class="card-title"><?=$item->id.(') ').$item->title?> </h5>
                 <p class="card-text">$<?=$item->price?></p>
-                <a href="#" class="btn btn-primary"> pridej do kosiku</a>
+                <a href="<?=base_url('index.php/add/'.$item->id)?>" class="btn btn-primary"> pridej do kosiku</a>
             </div>
             </div>
         <?php endforeach;?>

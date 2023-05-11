@@ -36,6 +36,45 @@ class Home extends CI_Controller {
 		$this->render('home', $viewData);
 	}
 
+	public function add_cart($item_id)
+	{
+		$item = $this->db->where('id', $item_id)->get('items')->row();
+		if(!isset($this->userData['logged'])){
+			//musi se prihlasit
+			redirect(base_url('index.php/home/login'));
+		}else{
+			$item = $this->db->where('id', $item_id)->get('items')->row();
+			if(!is_object($item)){
+			show_404();
+			}
+			$this->userData['cart'][] = $item_id;
+			$this->session->set_userdata('cart', $this->userData['cart']);
+			redirect(base_url('index.php/home/cart'));
+		}
+	}
+
+	public function cart()
+	{
+		if(!isset($this->userData['logged'])){
+			redirect(base_url('index.php/home/login'));
+		}
+
+		$delete = $this->input->get('del');
+		if($delete){
+			unset($this->userData['cart'][$delete-1]);
+			$this->session->set_userdata('cart', $this->userData['cart']);
+			redirect(base_url('index.php/home/cart'));
+		}
+
+		$data = ['total' => 0];
+		foreach ($this->userData['cart'] as $key=>$item_id) {
+			$item = $this->db->where('id', $item_id)->get('items')->row();
+			$data['items'][$key] = $item;
+			$data['total'] += $item->price;
+		}
+		$this->render('cart', $data);
+	}
+
 	public function logout(){
 		$this->session->unset_userdata([
 'logged', 'user_id', 'email', 'first_name', 'last_name'
@@ -68,6 +107,7 @@ class Home extends CI_Controller {
 					'first_name' 	=> $userData->first_name,
 					'last_name' 	=> $userData->last_name
 				];
+				$newdata['cart'] = isset($this->userData['cart']) ? $this->userData['cart'] : [];
 				$this->session->set_userdata($newdata);
 				redirect(base_url());
 			}else{
@@ -109,8 +149,10 @@ class Home extends CI_Controller {
 					'first_name' => $data['first_name'],
 					'last_name' => $data['last_name']
 				];
+				$newdata['cart'] = isset($this->userData['cart']) ? $this->userData['cart'] : [];
 				$this->session->set_userdata($newdata);
 				$viewData['success'] = true;
+				redirect(base_url());
 			}
 			//$user_id = $this->db->last_id();
 		}

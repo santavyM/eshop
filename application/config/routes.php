@@ -55,3 +55,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['category/(:num)'] = "home/index/$1";
+$route['add/(:num)'] = "home/add_cart/$1";

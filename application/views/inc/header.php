@@ -49,12 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <?=$user['first_name']?>
         </a>
         <div class="dropdown-menu">
-          <?php if($user['level'] == 0):?>
+        <a class="dropdown-item" href="<?=base_url('index.php/home/cart')?>">Shopping Cart</a>
+          <?php if(($user['level']) !== null):?>
+            <hr class="dropdown-divider">
         <a class="dropdown-item" href="<?=base_url('index.php/Manager/add_item')?>">Products</a>
         <a class="dropdown-item" href="<?=base_url('index.php/Manager/add_category')?>">category</a>
+        <a class="dropdown-item" href="<?=base_url('index.php/Manager/users')?>">users</a>
       <?php endif;?>
-      <a class="dropdown-item" href="<?=base_url('index.php/Manager/users')?>">users</a>
-      <a class="dropdown-item" href="<?=base_url('index.php/Manager/items')?>">Something else here</a>
+      <a class="dropdown-item" href="<?=base_url('index.php/Manager/items')?>"><?php $user['level'];?>Something else here</a>
       <hr class="dropdown-divider">
       <a class="dropdown-item" href="<?=base_url('index.php/home/logout')?>">Logout</a>
         </div>
