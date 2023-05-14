@@ -182,7 +182,7 @@ class Manager extends CI_Controller {
 			$this->db->delete('items', array('id' => $item_id));
 			$this->add_alert('success', 'item delete successful');
 		}
-		redirect(base_url('manager/items'));
+		redirect(base_url('index.php/manager/items'));
 
 	}
 

@@ -75,6 +75,23 @@ class Home extends CI_Controller {
 		$this->render('cart', $data);
 	}
 
+	public function checkout(){
+		if(!isset($this->userData['cart']) || is_array($this->userData['cart'])){
+			//redirect(base_url());
+		}
+
+		$this->load->helper('form');
+
+		$data = ['total' => 0];
+		foreach ($this->userData['cart'] as $key=>$item_id) {
+			$item = $this->db->where('id', $item_id)->get('items')->row();
+			$data['items'][$key] = $item;
+			$data['total'] += $item->price;
+		}
+		$data['country'] = json_decode(file_get_contents('./assets/country.json'), true);
+		$this->render('checkout', $data);
+	}
+
 	public function logout(){
 		$this->session->unset_userdata([
 'logged', 'user_id', 'email', 'first_name', 'last_name'
