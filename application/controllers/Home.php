@@ -81,6 +81,15 @@ class Home extends CI_Controller {
 		}
 
 		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('firstname', 'First name', 'required|trim');
+		$this->form_validation->set_rules('lastname', 'Last name', 'required|trim');
+		$this->form_validation->set_rules('address', 'Address', 'required|trim');
+		$this->form_validation->set_rules('state', 'State', 'required|trim');
+		$this->form_validation->set_rules('zip', 'Zip', 'required|trim');
+		$this->form_validation->set_rules('paymentmethod', 'Payment method', 'required|trim');
+		$this->form_validation->set_rules('country', 'Country', 'required|trim');
 
 		$data = ['total' => 0];
 		foreach ($this->userData['cart'] as $key=>$item_id) {
@@ -88,6 +97,36 @@ class Home extends CI_Controller {
 			$data['items'][$key] = $item;
 			$data['total'] += $item->price;
 		}
+
+		if($this->form_validation->run()){
+			$orderData = [
+				'first_name' 		=> $this->input->post('firstname'),
+				'last_name' 			=> $this->input->post('lastname'),
+				'address' 			=> $this->input->post('address'),
+				'state' 			=> $this->input->post('state'),
+				'zip' 				=> $this->input->post('zip'),
+				'payment' 			=> $this->input->post('paymentmethod'),
+				'country' 			=> $this->input->post('country'),
+				'user_id' 			=> $this->userData['user_id']
+			];
+			$this->db->insert('order', $orderData);
+			$order_id = $this->db->insert_id();
+			if($order_id){
+				foreach ($data['items'] as $item) {
+					$this->db->insert('order_has_items',[
+					'order_id' => $order_id,
+					'item_id' => $item->id,
+					'title' => $item->title,
+					'price' => $item->price
+					]);
+			}
+			$this->userData['cart'] = [];
+			$this->session->set_userdata('cart', $this->userData['cart']);
+			redirect(base_url());
+			} else {}
+		}
+
+		$data['user'] = $this->userData;
 		$data['country'] = json_decode(file_get_contents('./assets/country.json'), true);
 		$this->render('checkout', $data);
 	}

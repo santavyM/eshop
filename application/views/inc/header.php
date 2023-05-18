@@ -12,23 +12,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="<?=base_url()?>">Shop</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="<?=base_url()?>">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?=base_url()?>">Home <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact us</a>
-      </li>
-      <li class="nav-item dropdown">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="<?=base_url()?>">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About us</a>
+        </li>
+        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
         </a>
@@ -38,12 +36,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <?php endforeach;?>
         </div>
       </li>
-    
-    <form class="d-flex" action="" method="get">
+        
+      </ul>
+      <form class="d-flex">
       <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
-    <?php if(isset($user['logged']) && $user['logged']):?>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <?php if(isset($user['logged']) && $user['logged']):?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <?=$user['first_name']?>
@@ -64,6 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </ul>
     <?php else:?>
       <a class="nav-link" href="<?=base_url('index.php/home/login')?>">Login</a>
-    <?php endif;?>  
+    <?php endif;?> 
+    </div>
   </div>
 </nav>

@@ -4,24 +4,20 @@
     </div>
     <div class="row">
         <h4 class="col-md-8">Billing Address</h4>
-        <?=form_open(base_url())?>
+        <?=form_open(base_url('index.php/Home/checkout'))?>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="firstname">First name</label>
-                    <input type="text" class="firstname form-control" required name="firstname" value="<?=set_value("firstname")?>">
+                    <input type="text" class="firstname form-control" required name="firstname" value="<?=set_value("firstname", $user['first_name'])?>">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="lastname">Last name</label>
-                    <input type="text" class="lastname form-control" required name="lastname" value="<?=set_value("lastname")?>">
+                    <input type="text" class="lastname form-control" required name="lastname" value="<?=set_value("lastname", $user['last_name'])?>">
                 </div>
             </div>
             <div class="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="address form-control" required name="address" value="<?=set_value("address")?>">
-            </div>
-            <div class="mb-3">
-                    <label for="address">Address</label>
-                    <input type="text" class="address form-control" required name="address" value="<?=set_value("address")?>">
+                    <input type="text" class="address form-control" required name="address" value="<?=set_value("address")?>" placeholder="Kunovice 353">
             </div>
             <div class="row">
                 <div class="col-md-5 mb-3">
@@ -35,11 +31,11 @@
                 </div>
                 <div class="col-md-4 md-3">
                     <label for="state">kraj</label>
-                    <input type="text" class="form-control" name="state" id="state">
+                    <input type="text" class="form-control" name="state" value="<?=set_value("state")?>" id="state">
                 </div>
                 <div class="col-md-4 md-3">
-                    <label for="psc">PSČ</label>
-                    <input type="text" class="form-control" name="psc" id="psc">
+                    <label for="zip">PSČ</label>
+                    <input type="text" class="form-control" value="<?=set_value("zip")?>" name="zip" id="zip">
                 </div>
             </div>
 
