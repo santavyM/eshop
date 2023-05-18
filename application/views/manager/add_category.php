@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <label for="title">Title</label>
     <input type="text" class="form-control" id="title" name="title" value="<?=set_value('title')?>">
   </div>
-  <button type="submit" class="btn btn-success">Add new</button>
+  <button type="submit" class="d-md-block btn btn-primary font-weight-bold my-2 py-3">Add new</button>
 	<?=form_close()?>
 			</div>
 		</div>

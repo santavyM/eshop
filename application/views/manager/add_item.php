@@ -18,13 +18,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div class="form-group">
 	<label for="image">image</label>
-	<input class="form-control" type="file" id="image" name="image" value="<?=set_value('image')?>">
+	<input class="form-control-file" type="file" id="image" name="image" value="<?=set_value('image')?>">
   </div>
   <div class="form-group">
     <label for="description">description</label>
 	<textarea class="form-control" id="description" name="description"><?=set_value('description')?></textarea>
   </div>
-  <button type="submit" class="btn btn-success">Add new</button>
+  <button type="submit" class="d-md-block btn btn-primary font-weight-bold my-2 py-3">Add new</button>
 	<?=form_close()?>
 			</div>
 		</div>

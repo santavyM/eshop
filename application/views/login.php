@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?=form_close()?>
                 <div class="row">
                     <div class="col-12">
-                    <a class="btn btn-info mt-4" href="<?=base_url('index.php/home/register')?>">register</a>
+                    <a class="mt-4" style="color:black" href="<?=base_url('index.php/home/register')?>">register</a>
                     </div>
                 </div>
 			</div>

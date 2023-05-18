@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <label for="description">description</label>
 	<textarea class="form-control" id="description" name="description"><?=set_value('description', $item->description)?></textarea>
   </div>
-  <button type="submit" class="btn btn-success">Save new</button>
+  <button type="submit" class="d-md-block btn btn-primary font-weight-bold my-2 py-3">Save new</button>
 	<?=form_close()?>
 			</div>
 		</div>

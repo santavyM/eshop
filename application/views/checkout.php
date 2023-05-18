@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-md-5 mb-3">
                     <label for="country">Country</label>
-                    <select name="country" id="country" class="form-select">
+                    <select name="country" id="country" class="form-control">
                         <option value="">choose...</option>
                         <?php foreach($country as $con): ?>
                         <option value="<?=$con['code']?>"><?=$con['name']?></option>
@@ -51,7 +51,7 @@
 
             <hr class="mb-4">
             <div class="d-grid gap-2">
-                <button class="d-md-block btn btn-success" type="submit">Potvrdit</button>
+                <button class="d-md-block btn btn-primary font-weight-bold my-3 py-3" type="submit">Potvrdit</button>
             </div>
         <?=form_close()?>
     </div>

@@ -36,7 +36,7 @@ class Manager extends CI_Controller {
 			$this->db->delete('users', array('id' => $id));
 			$this->add_alert('success', 'User delete successful');
 		}
-		redirect(base_url('manager/users'));
+		redirect(base_url('index.php/manager/users'));
 
 	}
 	

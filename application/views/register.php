@@ -6,14 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-6 offset-md-3 text-center">
 			<h1 class='mb-3'>register</h1>
             <?if(isset($success) && $success): ?>
-                <div class="rov">
-                    <div class="col-12">
-                        <div class="alert alert-success">
-                            registration completed successfully
-                            <a href="<?=base_url()?>">home</a>
-                        </div>
-                    </div>
-                </div>
+                
             <?else:?>
 			<?=validation_errors()?>
 			<?=form_open("home/register")?>
@@ -46,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?=form_close()?>
                 <div class="row">
                     <div class="col-12">
-                    <a class="btn btn-info mt-4" href="<?=base_url('index.php/home/login')?>">Back to login</a>
+                    <a class="mt-4" style="color:black" href="<?=base_url('index.php/home/login')?>">Back to login</a>
                     </div>
                 </div>
                 <?endif;?>

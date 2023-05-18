@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <td><?=$item->first_name?> <?=$item->last_name?></td>
       <td><?=$item->level?></td>
       <td>
-        <a class="btn btn-danger delete" href="<?=base_url('index.php/Manager/delete_user/' . $item->id)?>">del</a>
+        <a class="btn btn-danger delete" href="<?=base_url('index.php/manager/delete_users/' . $item->id)?>">del</a>
         <a class="btn btn-primary" href="<?=base_url('index.php/Manager/edit_user/' . $item->id)?>">edit</a>
       </td>
     </tr>

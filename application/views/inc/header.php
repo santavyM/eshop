@@ -7,8 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <link href="<?php base_url('/assets/css/style.css');?>" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="<?=base_url('/assets/css/style.css')?>" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </ul>
       <form class="d-flex">
       <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+      <button class="btn btn-outline-warning" type="submit">Search</button>
     </form>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <?php if(isset($user['logged']) && $user['logged']):?>
@@ -67,4 +68,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php endif;?> 
     </div>
   </div>
+  <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                            <a href="<?=base_url('index.php/home/cart')?>" class="btn">
+                                <i class="fas fa-shopping-cart text-primary fa-lg"></i>
+                            </a>
+                        </div>
 </nav>

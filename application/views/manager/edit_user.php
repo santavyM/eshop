@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <label for="password">password</label>
     <input type="text" class="form-control" id="password" name="password">
   </div>
-  <button type="submit" class="btn btn-success">Save new</button>
+  <button type="submit" class="d-md-block btn btn-primary font-weight-bold my-2 py-3">Save new</button>
 	<?=form_close()?>
 			</div>
 		</div>
