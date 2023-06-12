@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url('/assets/css/style.css')?>" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?=base_url()?>">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,11 +53,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a class="dropdown-item" href="<?=base_url('index.php/home/cart')?>">Shopping Cart</a>
           <?php if(($user['level']) !== null):?>
             <hr class="dropdown-divider">
-        <a class="dropdown-item" href="<?=base_url('index.php/Manager/add_item')?>">Products</a>
-        <a class="dropdown-item" href="<?=base_url('index.php/Manager/add_category')?>">category</a>
-        <a class="dropdown-item" href="<?=base_url('index.php/Manager/users')?>">users</a>
+        <a class="dropdown-item" href="<?=base_url('index.php/Manager/add_item')?>">Add Product</a>
+        <a class="dropdown-item" href="<?=base_url('index.php/Manager/add_category')?>">Add Category</a>
+        <a class="dropdown-item" href="<?=base_url('index.php/Manager/users')?>">Users</a>
       <?php endif;?>
-      <a class="dropdown-item" href="<?=base_url('index.php/Manager/items')?>"><?php $user['level'];?>Something else here</a>
+      <a class="dropdown-item" href="<?=base_url('index.php/Manager/items')?>">Products</a>
       <hr class="dropdown-divider">
       <a class="dropdown-item" href="<?=base_url('index.php/home/logout')?>">Logout</a>
         </div>
@@ -72,5 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <a href="<?=base_url('index.php/home/cart')?>" class="btn">
                                 <i class="fas fa-shopping-cart text-primary fa-lg"></i>
                             </a>
-                        </div>
-</nav>
+  </div>
+</nav class="">
+<div class="mb-5">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-	<div class="container">
+	<div class="container mt-5">
 		<div class="row">
         <table class="table">
   <thead>

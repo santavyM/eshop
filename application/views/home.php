@@ -1,4 +1,5 @@
-<div class="col-lg-12">
+
+<div class="col-lg-12 mt-5">
                 <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
@@ -6,7 +7,7 @@
                         <li data-target="#header-carousel" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item position-relative active" style="height: 430px;">
+                        <div class="carousel-item position-relative active" style="height: 530px;">
                             <img class="position-absolute w-100 h-100" src="<?=base_url('uploads/iPhone-12.webp')?>" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
@@ -83,9 +84,9 @@
                         </div>
                     </div>
                     <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="<?=base_url('index.php/add/'.$item->id)?>"><?=$item->id.(') ').$item->title?></a>
+                        <a class="h6 text-decoration-none text-truncate" href="<?=base_url('index.php/add/'.$item->id)?>"><?=$item->title?></a> <?php //<?=$item->id.(') ').?>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$<?=$item->price?></h5><h6 class="text-muted ml-2"><del>$<?=($item->price)*2?></del></h6>
+                            <h5>$<?=$item->price?></h5><h6 class="text-muted ml-2"><del>$<?=($item->price)*2+0.01?></del></h6>
                         </div>
                         
                     </div>
@@ -97,3 +98,4 @@
         <?php //$pagination; ?>
     </div>
     </div> 
+</div>

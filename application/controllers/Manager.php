@@ -108,7 +108,7 @@ class Manager extends CI_Controller {
 		$this->load->library('form_validation');
 
 		
-		$this->form_validation->set_rules('title', 'title', 'required|min_length[3]|max_length[30]');
+		$this->form_validation->set_rules('title', 'title', 'required|min_length[3]|max_length[255]');
 		$this->form_validation->set_rules('description', 'description', 'required');
 		$this->form_validation->set_rules('price', 'price', 'required|numeric|greater_than[0]');
 
@@ -211,7 +211,7 @@ class Manager extends CI_Controller {
 	{
 	$config = [
 		'upload_path' => './uploads/',
-		'allowed_types' => 'gif|jpg|png',
+		'allowed_types' => 'gif|jpg|png|jfif',
 		'max_size' => 1024,
 		'encrypt_name' => true
 	];

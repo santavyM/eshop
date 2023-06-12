@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
     <div class="text-center">
         <h2>checkout</h2>
     </div>

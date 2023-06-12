@@ -80,6 +80,8 @@ return array(
 	'jp2'	=>	array('image/jp2', 'video/mj2', 'image/jpx', 'image/jpm'),
 	'j2k'	=>	array('image/jp2', 'video/mj2', 'image/jpx', 'image/jpm'),
 	'jpf'	=>	array('image/jp2', 'video/mj2', 'image/jpx', 'image/jpm'),
+	'jfif'  => 	array('image/jpeg', 'image/pjpeg'),
+	'webp'  => 	array('image/jpeg', 'image/pjpeg'),
 	'jpg2'	=>	array('image/jp2', 'video/mj2', 'image/jpx', 'image/jpm'),
 	'jpx'	=>	array('image/jp2', 'video/mj2', 'image/jpx', 'image/jpm'),
 	'jpm'	=>	array('image/jp2', 'video/mj2', 'image/jpx', 'image/jpm'),

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-	<div class="container">
+	<div class="container mt-5">
 		<div class="row">
 			<div class="col-6 offset-md-3 text-center">
 			<h1 class='mb-3'>register</h1>
